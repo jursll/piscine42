@@ -1,34 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 10:42:23 by julrusse          #+#    #+#             */
-/*   Updated: 2024/07/04 10:42:28 by julrusse         ###   ########.fr       */
+/*   Created: 2024/07/04 10:48:05 by julrusse          #+#    #+#             */
+/*   Updated: 2024/07/04 13:54:55 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_putchar(char	c)
 {
-	int	i;
+	write(1, &c, 1);
+}
 
-	i = 0;
-	while (str[i] != '\0')
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		i++;
+		ft_putchar('-');
+		write(1, "2147483648", 10);
+		return ;
 	}
-	return (i);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar(nb % 10 + '0');
 }
 /*
 int	main(void)
 {
-	char	a[] = "Hello Jetmir";
-
-	printf("%d", ft_strlen(a));
+	ft_putnbr(9);
+	ft_putchar('\n');
+	ft_putnbr(-42);
+	ft_putchar('\n');
+	ft_putnbr(2147483647);
+	ft_putchar('\n');
+	ft_putnbr(-2147483647);
+	ft_putchar('\n');
 	return (0);
 }
 */
