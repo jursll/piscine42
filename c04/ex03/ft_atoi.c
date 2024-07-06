@@ -6,7 +6,7 @@
 /*   By: julrusse <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:53:48 by julrusse          #+#    #+#             */
-/*   Updated: 2024/07/04 15:57:08 by julrusse         ###   ########.fr       */
+/*   Updated: 2024/07/06 17:04:07 by julrusse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi(char *str)
 {
 	int	i;
 	int	sign;
-	int nb;
+	int	nb;
 
 	i = 0;
 	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
